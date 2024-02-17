@@ -1,0 +1,3 @@
+vlc_path = "your VLC app path"  # Rutal del ejecutable de VLC
+media_path = "media folder path"  # Ruta de archivos a reproducir
+playlist_path = "playlist path"  # Ruta donde se creará el playlist
