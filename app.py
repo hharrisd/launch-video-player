@@ -188,7 +188,7 @@ class LaunchPlayer(ttk.Frame):
 
     def execute_player(self) -> None:
         # Command Line Help: https://wiki.videolan.org/VLC_command-line_help/
-        command = [self.vlc_path.get(), "--fullscreen", "--loop", "--no-video-title-show", "-Z", "q", 'playlist.m3u']
+        command = [self.vlc_path.get(), "--fullscreen", "--loop", "--no-video-title-show", "-Z", "-q", 'playlist.m3u']
         with in_dir(self.metadata_path.get()):
             self.on_stop_player()
             self.vlc_process = subprocess.Popen(command)
