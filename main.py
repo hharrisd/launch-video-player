@@ -5,6 +5,8 @@ import tomllib
 import logging
 import contextlib
 
+from sys import platform
+
 logging.basicConfig(format="%(levelname)s | %(asctime)s | %(message)s")
 
 
@@ -81,7 +83,8 @@ def configure_path_for_playlist(path: str) -> str:
         A string with the required playlist format
     """
     _, tail = os.path.split(path)
-    return f"#EXTINF:3,{tail}\nfile://{path}\n\n"
+    file_prefix = "" if platform == "win32" else "file://"
+    return f"#EXTINF:3,{tail}\n{file_prefix}{path}\n\n"
 
 
 def write_playlist_file(playlist_path: str, paths_list: list[str]) -> None:
